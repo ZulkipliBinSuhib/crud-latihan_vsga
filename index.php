@@ -18,11 +18,51 @@ include('config.php');
 	<div class="container" style="margin-top:20px">
         <h2 class="text-center">TABLE KARYAWAN</h2>
        
-        <a href="tambah.php"> <u>+ Tambah Karyawan</u> </a>
-        
-		
-		<hr>
-		
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Tambah Karyawan
+            </button>
+		<br><br>
+		            <!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <form action="tambah.php" method="post">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Karyawan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                <div class="form-group">
+                    <label>NIK</label>
+                    <input class="form-control" type="" name="nik" placeholder="Nomor Karyawan">
+                </div>
+                <div class="form-group">
+                    <label>Nama Karyawan</label>
+                    <input class="form-control" type="text" name="nama" placeholder="Nama Karyawan">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <select name="jenis_kelamin" class="form-control" >
+                        <option value="L">Laki-laki</option>
+                        <option value="P">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <textarea name="alamat" rows="5" placeholder="Alamat" class="form-control"></textarea>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+                </div>
+            </div>
+            </form>
+					</div>
 		<table class="table table-striped table-bordered">
 			<thead >
 				<tr>
@@ -44,7 +84,7 @@ include('config.php');
 					$no = 1;
 					//melakukan perulangan while dengan dari dari query $sql
 					while($data = mysqli_fetch_assoc($sql)){
-						//menampilkan data perulangan
+						//menampilkan	 data perulangan
 						echo '
 						<tr>
 							<td class="text-center">'.$no.'</td>
